@@ -58,20 +58,10 @@ func Solve2(input []byte) int {
 
 func parseInput(input string) ([]int, []*board) {
 	splittedInput := strings.Split(input, "\n\n")
-	numbers := parseCommaSeparatedInts(splittedInput[0])
+	numbers := util.ParseCommaSeparatedInts(splittedInput[0])
 	boards := parseBoards(splittedInput[1:])
 
 	return numbers, boards
-}
-
-func parseCommaSeparatedInts(str string) []int {
-	nums := make([]int, 0)
-
-	for _, s := range strings.Split(str, ",") {
-		nums = append(nums, util.ParseInt(s))
-	}
-
-	return nums
 }
 
 func parseBoards(strs []string) []*board {

@@ -142,7 +142,7 @@ func (b *board) sumAllUnmarkedNumbers() int {
 	return sum
 }
 
-func (b *board) render() string {
+func (b *board) String() string {
 	var buf bytes.Buffer
 
 	for _, row := range b.rows() {

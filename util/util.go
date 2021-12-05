@@ -76,6 +76,16 @@ func ParseIntLines(str string) []int {
 	return nums
 }
 
+func ParseCommaSeparatedInts(str string) []int {
+	nums := make([]int, 0)
+
+	for _, s := range strings.Split(str, ",") {
+		nums = append(nums, ParseInt(s))
+	}
+
+	return nums
+}
+
 func SumInts(nums []int) int {
 	res := 0
 
