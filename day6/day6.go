@@ -3,19 +3,19 @@ package day6
 import "adventofcode.com/AlexeyNeyman/util"
 
 func Solve1(input []byte) int {
-	return simulateFishPopulation(input, 80)
+	return predictFishPopulation(input, 80)
 }
 
 func Solve2(input []byte) int {
-	return simulateFishPopulation(input, 256)
+	return predictFishPopulation(input, 256)
 }
 
-func simulateFishPopulation(input []byte, simulationLengthDays int) int {
+func predictFishPopulation(input []byte, afterDays int) int {
 	initialFish := util.ParseCommaSeparatedInts(string(input))
 
 	simulation := newFishSimulation(initialFish)
 
-	simulation.passDays(simulationLengthDays)
+	simulation.passDays(afterDays)
 
 	fishCountAtTheEnd := simulation.countFish()
 

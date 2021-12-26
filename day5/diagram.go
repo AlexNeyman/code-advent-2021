@@ -51,7 +51,7 @@ func (d diagram) sizeX() int {
 	var maxX int
 
 	for coords := range d {
-		maxX = util.Max(coords.x, maxX)
+		maxX = util.MaxInt(coords.x, maxX)
 	}
 
 	return maxX
@@ -61,7 +61,7 @@ func (d diagram) sizeY() int {
 	var maxY int
 
 	for coords := range d {
-		maxY = util.Max(coords.y, maxY)
+		maxY = util.MaxInt(coords.y, maxY)
 	}
 
 	return maxY

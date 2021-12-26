@@ -6,11 +6,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"adventofcode.com/AlexeyNeyman/day6"
+	"adventofcode.com/AlexeyNeyman/day9"
 )
 
 func main() {
-	fmt.Println(day6.Solve2(readAsset("day6_input.txt")))
+	fmt.Println(day9.Solve1(readAsset("day9_input.txt")))
 }
 
 func readAsset(name string) []byte {

@@ -7,26 +7,6 @@ import (
 	"strings"
 )
 
-func Max(x, y int) int {
-	if x > y {
-		return x
-	}
-
-	return y
-}
-
-func Min(x, y int) int {
-	if x < y {
-		return x
-	}
-
-	return y
-}
-
-func GetBitValue(num int, shift int) int {
-	return (num & (1 << shift)) >> shift
-}
-
 func NewLinesScanner(str string) *bufio.Scanner {
 	reader := strings.NewReader(str)
 	scanner := bufio.NewScanner(reader)
@@ -76,22 +56,28 @@ func ParseIntLines(str string) []int {
 	return nums
 }
 
-func ParseCommaSeparatedInts(str string) []int {
+func ParseSeparatedInts(str string, sep string) []int {
 	nums := make([]int, 0)
 
-	for _, s := range strings.Split(str, ",") {
+	for _, s := range strings.Split(str, sep) {
 		nums = append(nums, ParseInt(s))
 	}
 
 	return nums
 }
 
-func SumInts(nums []int) int {
-	res := 0
+func ParseCommaSeparatedInts(str string) []int {
+	return ParseSeparatedInts(str, ",")
+}
 
-	for _, num := range nums {
-		res += num
+func ParseSeparatedIntLines(str string, sep string) [][]int {
+	intLines := make([][]int, 0)
+
+	for scanner := NewLinesScanner(str); scanner.Scan(); {
+		line := scanner.Text()
+		intLine := ParseSeparatedInts(line, sep)
+		intLines = append(intLines, intLine)
 	}
 
-	return res
+	return intLines
 }
